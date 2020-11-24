@@ -1,29 +1,20 @@
-import * as React from 'react';
-import {View,Text,StyleSheet} from 'react-native';
-import {createSwitchNavigator,createAppContainer} from 'react-navigation'
-import WelcomeScreen from './screens/WelcomeScreen'
-import {AppTabNavigator} from './components/AppTabNavigator'
+import React from 'react';
+import { createAppContainer, createSwitchNavigator,} from 'react-navigation';
 
-export default class App extends React.Component{
-  render(){
-    return(
-      
-        <AppContainer/>
+import WelcomeScreen from './screens/WelcomeScreen';
+import  {AppDrawerNavigator}  from './components/AppDraweNavigator'
 
-     
-    )
-  }
+
+export default function App() {
+  return (
+    <AppContainer/>
+  );
 }
-const SwitchNavigator = createSwitchNavigator({
+
+
+const switchNavigator = createSwitchNavigator({
   WelcomeScreen:{screen: WelcomeScreen},
-  BottomTab : {screen:AppTabNavigator}
+  Drawer:{screen: AppDrawerNavigator}
 })
 
-const AppContainer = createAppContainer(SwitchNavigator)
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
-  }
-})
+const AppContainer =  createAppContainer(switchNavigator);
