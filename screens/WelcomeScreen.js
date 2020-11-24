@@ -45,6 +45,7 @@ firebase.auth().createUserWithEmailAndPassword(email,password)
 userlogIn=(email,password)=>{
 firebase.auth().signInWithEmailAndPassword(email,password)
 .then(()=>{
+    this.props.navigation.navigate('DonateBooks')
     return Alert.alert("Successfully LoggedIn")
 })
 .catch(error=>{
